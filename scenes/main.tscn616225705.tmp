@@ -1,0 +1,107 @@
+[gd_scene format=4 uid="uid://cqqdq05ra6psw"]
+
+[ext_resource type="Script" uid="uid://ww8q0440gm5h" path="res://scenes/cursor_circle.gd" id="1_o5qli"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_sgp6g"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAABSAAAAUklGRkoAAABXRUJQVlA4TD0AAAAvH8AHEA8w93M/9/Mf8GAVSVajqUIAEpCCNKwhic+c052DiP5PAP9bAU6CV5A1VLNr7aWaXdbgFTgJVvA/AA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5qli"]
+atlas = SubResource("PortableCompressedTexture2D_sgp6g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wfyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5qli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgp6g"]
+radius = 8.0
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o5qli"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACWAAAAUklGRo4AAABXRUJQVlA4TIIAAAAvH8AHEBcgEEhy2p9tDYFAEuL+MgsEkhD3l1lAUOT/aAH/VXAQSZIi9aGIUbMS7hkc7KhZEYdtc0BDRP8nAMAywV3FedX6AlD439gBzcxGL7OSpGQuoyjMsWveHK2eRJen0epJ1Lw5Kl6HK6fAaiTTqBdn899MMR2AV60v2FXgLhMA")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wfyh"]
+atlas = SubResource("PortableCompressedTexture2D_o5qli")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sugp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wfyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="main" type="Node2D" unique_id=475699786]
+
+[node name="gameBG" type="ColorRect" parent="." unique_id=2023429783]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1089124989]
+
+[node name="cursorCircle" type="AnimatedSprite2D" parent="." unique_id=848209217]
+texture_filter = 1
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_0wfyh")
+script = ExtResource("1_o5qli")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/InnerCircle.aseprite",
+"source_uid": 1096797775563972276
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a920ec0c07b12444fc7939d8c36df0ab"
+
+[node name="slamTimer" type="Timer" parent="cursorCircle" unique_id=163370867]
+
+[node name="hitBoxArea" type="Area2D" parent="cursorCircle" unique_id=748830316]
+visible = false
+
+[node name="hitBoxCollShape" type="CollisionShape2D" parent="cursorCircle/hitBoxArea" unique_id=603876643]
+shape = SubResource("CircleShape2D_sgp6g")
+
+[node name="centerCircle" type="AnimatedSprite2D" parent="." unique_id=1849632587]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sugp2")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/OuterCircle.aseprite",
+"source_uid": 2139673376439098705
+}
+metadata/_aseprite_wizard_source_file_hash_ = "87a29cbccfa741b73ac1ea404ba4eb76"

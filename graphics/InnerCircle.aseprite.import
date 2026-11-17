@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://pvkdmt118daa"
+path="res://.godot/imported/InnerCircle.aseprite-56fb7f65bd5f35161e98e8c21ac209c2.res"
+
+[deps]
+
+source_file="res://graphics/InnerCircle.aseprite"
+dest_files=["res://.godot/imported/InnerCircle.aseprite-56fb7f65bd5f35161e98e8c21ac209c2.res"]
+
+[params]
+

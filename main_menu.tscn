@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://x453jipk30xi"]
+
+[ext_resource type="FontFile" uid="uid://qt6lhpqg00ef" path="res://graphics/fonts/title.TTF" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://ccumb5kn67wxx" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Theme" uid="uid://05cp4qufl6op" path="res://graphics/fonts/mainText.tres" id="2_fu7sn"]
+[ext_resource type="FontFile" uid="uid://b5kjq3p0cn5gy" path="res://graphics/fonts/main.otf" id="4_jix8l"]
+[ext_resource type="Theme" uid="uid://dw4xacoqucj3u" path="res://graphics/fonts/secondaryText.tres" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://d0850rbs4lvjs" path="res://graphics/gamemodeLogosBare1.png" id="5_iotk1"]
+[ext_resource type="Texture2D" uid="uid://dgijh804msuvd" path="res://graphics/gamemodeLogosBare2.png" id="6_w44g7"]
+[ext_resource type="Texture2D" uid="uid://3ujkwll6i0rh" path="res://graphics/gamemodeLogosBare3.png" id="7_cm266"]
+[ext_resource type="Texture2D" uid="uid://cg0ayf57h0ow3" path="res://graphics/gamemodeLogosBare4.png" id="8_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://b62chvstwryo8" path="res://graphics/gamemodeLogosBare5.png" id="9_8u0te"]
+[ext_resource type="Texture2D" uid="uid://cydjslly2hbhc" path="res://graphics/gamemodeLogosBare6.png" id="10_oiatc"]
+[ext_resource type="Texture2D" uid="uid://b82oicbbivgvu" path="res://graphics/gamemodeLogosBare7.png" id="11_mg3m2"]
+[ext_resource type="Texture2D" uid="uid://djwf1o3gy8rkv" path="res://graphics/gamemodeLogosBare8.png" id="12_ojb7r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq887"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_glbon"]
+default_font = ExtResource("4_jix8l")
+default_font_size = 45
+Button/colors/font_color = Color(0.66821575, 0.66821676, 0.6682161, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/font_sizes/font_size = 62
+Button/fonts/font = ExtResource("4_jix8l")
+Button/styles/hover = SubResource("StyleBoxFlat_ya4ey")
+Button/styles/normal = SubResource("StyleBoxFlat_qq887")
+Button/styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_iotk1"]
+
+[node name="mainMenu" type="Control" unique_id=1609928965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1323374972]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="titleScreen" type="Control" parent="." unique_id=635566281]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="titleScreen" unique_id=1435493973]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 323.0
+offset_top = 87.0
+offset_right = 789.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_7vrkn")
+theme_override_font_sizes/font_size = 85
+text = "Dead Center"
+
+[node name="Begin" type="Button" parent="titleScreen" unique_id=1798338808]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_top = 244.0
+offset_right = 616.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Begin"
+
+[node name="Options" type="Button" parent="titleScreen" unique_id=1057455110]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 319.0
+offset_right = 626.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Options
+"
+
+[node name="Quit" type="Button" parent="titleScreen" unique_id=180450714]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 400.0
+offset_right = 626.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Quit
+"
+
+[node name="gamemodeScreen" type="Control" parent="." unique_id=1019105967]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gamemode" type="Label" parent="gamemodeScreen" unique_id=80066127]
+layout_mode = 0
+offset_left = 15.000061
+offset_top = 12.0000305
+offset_right = 280.00006
+offset_bottom = 111.00003
+theme = SubResource("Theme_glbon")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 77
+text = "Gamemode"
+
+[node name="TabBar" type="TabBar" parent="gamemodeScreen" unique_id=878369842]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 97.0
+offset_right = 173.0
+offset_bottom = 132.0
+size_flags_vertical = 0
+theme = ExtResource("5_glbon")
+current_tab = 1
+tab_alignment = 1
+clip_tabs = false
+close_with_middle_mouse = false
+tab_count = 2
+tab_0/title = "Normal"
+tab_0/tooltip = "Base Game Mode"
+tab_1/title = "Endless"
+tab_1/tooltip = "Endless Game Mode"
+
+[node name="beginRound" type="Button" parent="gamemodeScreen" unique_id=676284459]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 988.0
+offset_top = 542.0
+offset_right = 1104.0
+offset_bottom = 582.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Begin"
+
+[node name="normalOptions" type="Control" parent="gamemodeScreen" unique_id=385967507]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="easyLogo" type="TextureButton" parent="gamemodeScreen/normalOptions" unique_id=837843013]
+texture_filter = 1
+layout_mode = 0
+offset_left = 122.00011
+offset_top = 229.00008
+offset_right = 154.00012
+offset_bottom = 261.00006
+scale = Vector2(5, 5)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_iotk1")
+texture_normal = ExtResource("5_iotk1")
+texture_pressed = ExtResource("6_w44g7")
+texture_hover = ExtResource("6_w44g7")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/gamemodeLogos.aseprite",
+"source_uid": 6730357469862453642
+}
+metadata/_aseprite_wizard_source_file_hash_ = "150db204d53d2e2534371a6785788a70"
+
+[node name="normalLogo" type="TextureButton" parent="gamemodeScreen/normalOptions" unique_id=2051076140]
+texture_filter = 1
+layout_mode = 0
+offset_left = 374.0
+offset_top = 229.00008
+offset_right = 406.0
+offset_bottom = 261.00006
+scale = Vector2(5, 5)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_iotk1")
+texture_normal = ExtResource("7_cm266")
+texture_pressed = ExtResource("8_g8g3n")
+texture_hover = ExtResource("8_g8g3n")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/gamemodeLogos.aseprite",
+"source_uid": 6730357469862453642
+}
+metadata/_aseprite_wizard_source_file_hash_ = "150db204d53d2e2534371a6785788a70"
+
+[node name="semiBulletLogo" type="TextureButton" parent="gamemodeScreen/normalOptions" unique_id=1639648956]
+texture_filter = 1
+layout_mode = 0
+offset_left = 630.00006
+offset_top = 229.00008
+offset_right = 662.00006
+offset_bottom = 261.00006
+scale = Vector2(5, 5)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_iotk1")
+texture_normal = ExtResource("9_8u0te")
+texture_pressed = ExtResource("10_oiatc")
+texture_hover = ExtResource("10_oiatc")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/gamemodeLogos.aseprite",
+"source_uid": 6730357469862453642
+}
+metadata/_aseprite_wizard_source_file_hash_ = "150db204d53d2e2534371a6785788a70"
+
+[node name="bulletLogo" type="TextureButton" parent="gamemodeScreen/normalOptions" unique_id=1394396121]
+texture_filter = 1
+layout_mode = 0
+offset_left = 882.00006
+offset_top = 229.00008
+offset_right = 914.00006
+offset_bottom = 261.00006
+scale = Vector2(5, 5)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_iotk1")
+texture_normal = ExtResource("11_mg3m2")
+texture_pressed = ExtResource("12_ojb7r")
+texture_hover = ExtResource("12_ojb7r")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/gamemodeLogos.aseprite",
+"source_uid": 6730357469862453642
+}
+metadata/_aseprite_wizard_source_file_hash_ = "150db204d53d2e2534371a6785788a70"
+
+[node name="semiBulletLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1944514685]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 356.0
+offset_right = 761.0
+offset_bottom = 383.0
+theme = ExtResource("5_glbon")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Semi-Bullet"
+horizontal_alignment = 1
+
+[node name="BulletLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1137617950]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 356.0
+offset_right = 1012.0
+offset_bottom = 383.0
+theme = ExtResource("5_glbon")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bullet"
+horizontal_alignment = 1
+
+[node name="semiBulletLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1254186560]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 356.0
+offset_right = 253.0
+offset_bottom = 383.0
+theme = ExtResource("5_glbon")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Easy"
+horizontal_alignment = 1
+
+[node name="BulletLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=449737361]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 356.0
+offset_right = 505.0
+offset_bottom = 383.0
+theme = ExtResource("5_glbon")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Normal"
+horizontal_alignment = 1
+
+[node name="endlessOptions" type="Control" parent="gamemodeScreen" unique_id=1571570471]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="titleScreen/Begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="titleScreen/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="titleScreen/Quit" to="." method="_on_quit_pressed"]
+[connection signal="tab_changed" from="gamemodeScreen/TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_round_pressed"]
+[connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_pressed"]
