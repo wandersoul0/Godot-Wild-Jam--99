@@ -101,6 +101,10 @@ func on_slam_timer_timeout() -> void:
 				var viewport_pos: Vector2 = get_viewport().get_canvas_transform() * pos
 				get_viewport().warp_mouse(viewport_pos),
 				start_pos,target_pos,slamSpeed)
+		var mult = clamp(global.difficulty, 0.0, 1000.0) / 700.0
+		current_slam_force = slam_force * mult
+		current_min_interval = min_interval / max(mult, 0.25)
+		current_max_interval = max_interval / max(mult, 0.25)
 		global.score += 1
 		if global.gamemode == 2:
 			global.difficulty += 10
