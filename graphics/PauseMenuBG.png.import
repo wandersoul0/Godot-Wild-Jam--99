@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc265ooeubtec"
-path="res://.godot/imported/whiteCirclePrfct.png-0e36613a704b5e0288cb510d735fb56c.ctex"
+uid="uid://cobftg3rmugx8"
+path="res://.godot/imported/PauseMenuBG.png-42defbf6664aabbdf6ecac2dd14ae661.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/whiteCirclePrfct.png"
-dest_files=["res://.godot/imported/whiteCirclePrfct.png-0e36613a704b5e0288cb510d735fb56c.ctex"]
+source_file="res://graphics/PauseMenuBG.png"
+dest_files=["res://.godot/imported/PauseMenuBG.png-42defbf6664aabbdf6ecac2dd14ae661.ctex"]
 
 [params]
 

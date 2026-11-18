@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://x453jipk30xi"]
 
 [ext_resource type="FontFile" uid="uid://qt6lhpqg00ef" path="res://graphics/fonts/title.TTF" id="1_7vrkn"]
-[ext_resource type="Script" uid="uid://ccumb5kn67wxx" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://ccumb5kn67wxx" path="res://scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Theme" uid="uid://05cp4qufl6op" path="res://graphics/fonts/mainText.tres" id="2_fu7sn"]
 [ext_resource type="FontFile" uid="uid://b5kjq3p0cn5gy" path="res://graphics/fonts/main.otf" id="4_jix8l"]
-[ext_resource type="Theme" uid="uid://dw4xacoqucj3u" path="res://graphics/fonts/secondaryText.tres" id="5_glbon"]
 [ext_resource type="Texture2D" uid="uid://d0850rbs4lvjs" path="res://graphics/gamemodeLogosBare1.png" id="5_iotk1"]
+[ext_resource type="Theme" uid="uid://c7oqav0bx4aqi" path="res://graphics/fonts/title.tres" id="5_w44g7"]
 [ext_resource type="Texture2D" uid="uid://dgijh804msuvd" path="res://graphics/gamemodeLogosBare2.png" id="6_w44g7"]
 [ext_resource type="Texture2D" uid="uid://3ujkwll6i0rh" path="res://graphics/gamemodeLogosBare3.png" id="7_cm266"]
 [ext_resource type="Texture2D" uid="uid://cg0ayf57h0ow3" path="res://graphics/gamemodeLogosBare4.png" id="8_g8g3n"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cydjslly2hbhc" path="res://graphics/gamemodeLogosBare6.png" id="10_oiatc"]
 [ext_resource type="Texture2D" uid="uid://b82oicbbivgvu" path="res://graphics/gamemodeLogosBare7.png" id="11_mg3m2"]
 [ext_resource type="Texture2D" uid="uid://djwf1o3gy8rkv" path="res://graphics/gamemodeLogosBare8.png" id="12_ojb7r"]
+[ext_resource type="Texture2D" uid="uid://sivrm7pgopdv" path="res://graphics/infinityLogo.png" id="14_w44g7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -35,6 +36,8 @@ Button/styles/normal = SubResource("StyleBoxFlat_qq887")
 Button/styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_iotk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcpgj"]
 
 [node name="mainMenu" type="Control" unique_id=1609928965]
 layout_mode = 3
@@ -86,7 +89,7 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
-text = "Begin"
+text = "Play"
 
 [node name="Options" type="Button" parent="titleScreen" unique_id=1057455110]
 layout_mode = 1
@@ -143,8 +146,9 @@ offset_top = 97.0
 offset_right = 173.0
 offset_bottom = 132.0
 size_flags_vertical = 0
-theme = ExtResource("5_glbon")
-current_tab = 1
+theme = ExtResource("5_w44g7")
+theme_override_font_sizes/font_size = 47
+current_tab = 0
 tab_alignment = 1
 clip_tabs = false
 close_with_middle_mouse = false
@@ -161,9 +165,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 988.0
-offset_top = 542.0
+offset_top = 548.0
 offset_right = 1104.0
-offset_bottom = 582.0
+offset_bottom = 588.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
@@ -298,24 +302,24 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "150db204d53d2e2534371a6785788a70"
 
-[node name="semiBulletLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1944514685]
+[node name="easyLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1944514685]
 layout_mode = 0
 offset_left = 656.0
 offset_top = 356.0
 offset_right = 761.0
 offset_bottom = 383.0
-theme = ExtResource("5_glbon")
+theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Semi-Bullet"
 horizontal_alignment = 1
 
-[node name="BulletLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1137617950]
+[node name="bulletLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1137617950]
 layout_mode = 0
 offset_left = 907.0
 offset_top = 356.0
 offset_right = 1012.0
 offset_bottom = 383.0
-theme = ExtResource("5_glbon")
+theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bullet"
 horizontal_alignment = 1
@@ -326,26 +330,162 @@ offset_left = 148.0
 offset_top = 356.0
 offset_right = 253.0
 offset_bottom = 383.0
-theme = ExtResource("5_glbon")
+theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Easy"
 horizontal_alignment = 1
 
-[node name="BulletLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=449737361]
+[node name="normalLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=449737361]
 layout_mode = 0
 offset_left = 400.0
 offset_top = 356.0
 offset_right = 505.0
 offset_bottom = 383.0
-theme = ExtResource("5_glbon")
+theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Normal"
 horizontal_alignment = 1
 
+[node name="easyLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=387591563]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 232.0
+offset_right = 761.0
+offset_bottom = 259.0
+theme = ExtResource("5_w44g7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "700"
+horizontal_alignment = 1
+
+[node name="bulletLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1879429717]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 232.0
+offset_right = 1012.0
+offset_bottom = 259.0
+theme = ExtResource("5_w44g7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "900"
+horizontal_alignment = 1
+
+[node name="semiBulletLabel3" type="Label" parent="gamemodeScreen/normalOptions" unique_id=2062533672]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 232.0
+offset_right = 253.0
+offset_bottom = 259.0
+theme = ExtResource("5_w44g7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "300"
+horizontal_alignment = 1
+
+[node name="normalLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1863232074]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 232.0
+offset_right = 505.0
+offset_bottom = 259.0
+theme = ExtResource("5_w44g7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "500"
+horizontal_alignment = 1
+
+[node name="normalDescription" type="Label" parent="gamemodeScreen/normalOptions" unique_id=2086835487]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 513.0
+offset_right = 612.0
+offset_bottom = 630.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 28
+text = "Round Time: 1 Minute. Base game mode. Test your skills against a series of increasingly challenging encounters. Survive, adapt, and overcome every threat standing between you and victory."
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="normalTitle" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1957771171]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 108.0
+theme = SubResource("Theme_glbon")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 77
+text = "Normal"
+horizontal_alignment = 2
+
+[node name="Custom Difficulty Label" type="Label" parent="gamemodeScreen/normalOptions" unique_id=173053084]
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 393.0
+offset_right = 1138.0
+offset_bottom = 516.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "Custom
+Difficulty:
+(1-1000)"
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="gamemodeScreen/normalOptions" unique_id=1010019532]
+layout_mode = 0
+offset_left = 1042.0
+offset_top = 514.0
+offset_right = 1152.5
+offset_bottom = 558.0
+theme = ExtResource("5_w44g7")
+theme_override_icons/updown = SubResource("AtlasTexture_fcpgj")
+min_value = 1.0
+max_value = 1000.0
+value = 500.0
+rounded = true
+alignment = 1
+select_all_on_focus = true
+
+[node name="difficultyLabel" type="Label" parent="gamemodeScreen/normalOptions" unique_id=25983769]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 163.0
+offset_right = 680.0
+offset_bottom = 226.0
+theme = ExtResource("5_w44g7")
+theme_override_font_sizes/font_size = 59
+text = "Difficulty"
+
 [node name="endlessOptions" type="Control" parent="gamemodeScreen" unique_id=1571570471]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="endlessDescription" type="Label" parent="gamemodeScreen/endlessOptions" unique_id=1712490690]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 473.0
+offset_right = 636.0
+offset_bottom = 630.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 28
+text = "Round Time: Infinite. Endless Game mode. Survive for as long as possible as the difficulty ramps up and face enemies exclusive to Endless. Adapt to the growing pressure and push your limits to achieve the highest score."
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="endlessTitle" type="Label" parent="gamemodeScreen/endlessOptions" unique_id=2020282758]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 108.0
+theme = SubResource("Theme_glbon")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 77
+text = "Endless"
+horizontal_alignment = 2
+
+[node name="InfinityLogo" type="Sprite2D" parent="gamemodeScreen/endlessOptions" unique_id=1275083421]
+position = Vector2(596.0001, 316.00003)
+scale = Vector2(0.3610478, 0.36104783)
+texture = ExtResource("14_w44g7")
 
 [connection signal="pressed" from="titleScreen/Begin" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="titleScreen/Options" to="." method="_on_options_pressed"]
@@ -353,3 +493,8 @@ offset_bottom = 40.0
 [connection signal="tab_changed" from="gamemodeScreen/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_round_pressed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="gamemodeScreen/normalOptions/easyLogo" to="." method="_on_easy_logo_pressed"]
+[connection signal="pressed" from="gamemodeScreen/normalOptions/normalLogo" to="." method="_on_normal_logo_pressed"]
+[connection signal="pressed" from="gamemodeScreen/normalOptions/semiBulletLogo" to="." method="_on_semi_bullet_logo_pressed"]
+[connection signal="pressed" from="gamemodeScreen/normalOptions/bulletLogo" to="." method="_on_bullet_logo_pressed"]
+[connection signal="value_changed" from="gamemodeScreen/normalOptions/SpinBox" to="." method="_on_spin_box_value_changed"]

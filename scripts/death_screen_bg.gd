@@ -9,7 +9,11 @@ func death():
 	show()
 	
 func reset():
-	pass
+	hide()
 
 func _process(delta: float) -> void:
 	pass
+
+func _on_try_again_button_pressed() -> void:
+	hide()
+	global.reset.emit()

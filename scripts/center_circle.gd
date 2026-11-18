@@ -11,13 +11,14 @@ func _ready():
 	global.begin.connect(begin)
 
 func begin():
-	var mult = clamp(global.difficulty, 0.0, 1000.0) / 700.0
+	var mult = clamp(global.difficulty, 0.0, 1000.0) / 500.0
 	current_loss_speed = loss_speed * mult
 	if global.difficulty < 500:
 		current_gain_speed = 1
 	else:
 		current_gain_speed = gain_speed / max(mult, 0.25)
 	show()
+
 	
 
 func reset():
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 		if global.player_health <= 0:
 			if global.game_active == true:
 				global.game_active = false
-				global.dead=true
+				global.roundReady = false
+				global.dead = true
 				global.death.emit()
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

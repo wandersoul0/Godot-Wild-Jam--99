@@ -1,0 +1,42 @@
+[gd_resource type="Theme" format=3 uid="uid://c7oqav0bx4aqi"]
+
+[ext_resource type="FontFile" uid="uid://h4ritlir4nv7" path="res://graphics/fonts/secondary.ttf" id="1_qok74"]
+[ext_resource type="FontFile" uid="uid://qt6lhpqg00ef" path="res://graphics/fonts/title.TTF" id="2_3337h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qok74"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3337h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukcrh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kre3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w44g7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6mv7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_qok74")
+default_font_size = 25
+Button/colors/font_color = Color(0.80219066, 0.8021912, 0.8021908, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_qok74")
+Button/styles/focus = SubResource("StyleBoxFlat_qok74")
+Button/styles/hover = SubResource("StyleBoxFlat_3337h")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_ukcrh")
+Button/styles/normal = SubResource("StyleBoxFlat_glbon")
+Button/styles/pressed = SubResource("StyleBoxFlat_7kre3")
+LineEdit/fonts/font = ExtResource("2_3337h")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_w44g7")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_h6mv7")

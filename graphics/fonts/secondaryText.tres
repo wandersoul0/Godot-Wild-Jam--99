@@ -1,13 +1,21 @@
 [gd_resource type="Theme" format=3 uid="uid://dw4xacoqucj3u"]
 
-[ext_resource type="FontFile" uid="uid://h4ritlir4nv7" path="res://graphics/fonts/secondary.ttf" id="1_qx5tv"]
+[ext_resource type="FontFile" uid="uid://h4ritlir4nv7" path="res://graphics/fonts/secondary.ttf" id="1_u68oe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotk1"]
+bg_color = Color(0.60284287, 0.602843, 0.60284287, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
 bg_color = Color(0, 0, 0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w44g7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [resource]
-default_font = ExtResource("1_qx5tv")
+default_font = ExtResource("1_u68oe")
 default_font_size = 25
 Button/font_sizes/font_size = 20
-Button/fonts/font = ExtResource("1_qx5tv")
+Button/fonts/font = ExtResource("1_u68oe")
+Button/styles/focus = SubResource("StyleBoxFlat_iotk1")
 Button/styles/normal = SubResource("StyleBoxFlat_glbon")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_w44g7")

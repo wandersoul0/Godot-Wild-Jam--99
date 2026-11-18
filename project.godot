@@ -13,6 +13,9 @@ config_version=5
 config/name="Godot Wild Jam #99 main"
 run/main_scene="uid://cqqdq05ra6psw"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dmn0g576eb0f6"
+boot_splash/minimum_display_time=100
 
 [autoload]
 
