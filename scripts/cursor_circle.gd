@@ -4,9 +4,11 @@ extends AnimatedSprite2D
 @export var max_interval: float = 1.5
 @export var slam_force: float = 650.0
 @export var slamSpeed = 0.12
+@export var endlessDifficultyCurve = 4
 @onready var centerCircle = $"../centerCircle"
 @onready var timer = $slamTimer
 @onready var roundTimer = $roundTimer
+@onready var music_player1 = get_node_or_null("/root/main/mainMenu/sound/mainRoundMusic")
 @export_range(0.0, 1.0) var usurper_chance = 0.1
 @export_range(0.0, 1.0) var deciever_chance = 0.1
 
@@ -19,6 +21,7 @@ var current_max_interval
 var current_min_interval
 var current_slam_force
 
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	global.begin.connect(begin)
@@ -30,9 +33,10 @@ func _ready() -> void:
 	roundTimer.timeout.connect(endGame)
 	roundTimer.wait_time = global.baseRoundTime
 	hide()
-
+	
 func toggle_pause() -> void:
 	global.pause_toggle = !global.pause_toggle
+	music_player1.stream_paused = !music_player1.stream_paused
 	
 	if global.pause_toggle == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -58,12 +62,11 @@ func begin():
 		global.roundTime = global.baseRoundTime
 		roundTimer.one_shot = true
 	elif global.gamemode == 2:
-		global.difficulty = 300
+		global.difficulty = 500
 		roundTimer.wait_time = 1
 		global.roundTime = 0
 		roundTimer.one_shot = false
 	scale_mult = 0.0
-	global.score = 0
 	show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
@@ -90,6 +93,8 @@ func _process(_delta: float) -> void:
 			get_viewport().warp_mouse(get_viewport().get_canvas_transform() * global_position)
 			return
 		global_position = mouse_pos
+		mouse_pos.x = clamp(mouse_pos.x, 0, get_viewport_rect().size.x)
+		mouse_pos.y = clamp(mouse_pos.y, 0, get_viewport_rect().size.y)
 	if not roundTimer.is_stopped():
 		global.roundTime = roundTimer.time_left
 			
@@ -100,10 +105,6 @@ func endGame() -> void:
 		global.game_active = false
 		if global.difficulty > global.difficulty_record:
 			global.difficulty_record = global.difficulty
-	if global.gamemode == 2:
-		if global.score > global.record:
-			global.record = global.score
-	global.score = 0
 	global.success.emit()
 
 func on_slam_timer_timeout() -> void:
@@ -131,7 +132,7 @@ func on_slam_timer_timeout() -> void:
 		current_max_interval = max_interval / max(mult, 0.25)
 		global.score += 1
 		if global.gamemode == 2:
-			global.difficulty += 10
+			global.difficulty += endlessDifficultyCurve
 			var screen_size: Vector2 = get_viewport_rect().size
 			var spawn_pos = Vector2(
 			randf_range(100, screen_size.x - 100),

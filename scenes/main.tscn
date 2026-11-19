@@ -231,6 +231,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Environment" id="Environment_e2srm"]
+background_mode = 3
+adjustment_enabled = true
+
 [node name="main" type="Node2D" unique_id=475699786]
 
 [node name="gameBG" type="ColorRect" parent="." unique_id=2023429783]
@@ -367,3 +371,6 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
+
+[node name="WorldEnv" type="WorldEnvironment" parent="." unique_id=1344171159]
+environment = SubResource("Environment_e2srm")

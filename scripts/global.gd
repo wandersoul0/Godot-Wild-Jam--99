@@ -15,6 +15,10 @@ var gamemode = 1
 var score = 0
 var record = 0
 var difficulty_record = 0
+var brightness = 50
+var masterVolume = 50
+var musicVolume = 50
+var skipDeathAnim = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

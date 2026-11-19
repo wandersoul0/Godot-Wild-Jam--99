@@ -1,5 +1,6 @@
 extends Control
 @onready var cursorCircle = get_node_or_null("/root/main/mainGame/cursorCircle")
+@onready var world_env = get_node_or_null("/root/main/WorldEnv")
 @onready var titleScreen = $titleScreen
 @onready var gamemodeScreen = $gamemodeScreen
 @onready var endlessOptions = $gamemodeScreen/endlessOptions
@@ -9,8 +10,15 @@ extends Control
 @onready var winScreen = $winScreen
 @onready var pauseMenu = $pauseMenu
 @onready var howToPlayScreen = $howToPlay
+@onready var optionsMenu = $options
 @onready var deathScreenHum = $sound/deathScreenHum
+@onready var mainRoundMusic = $sound/mainRoundMusic
+@onready var endlessMusic = $sound/endlessMusic
+@onready var brightnessSlider = $options/brightness
+@onready var musicVolumeSlider = $options/musicVolume
+@onready var masterVolumeSlider = $options/masterVolume
 var show_toggle = true
+var bus_idx
 
 func _ready() -> void:
 	show()
@@ -20,10 +28,28 @@ func _ready() -> void:
 	winScreen.hide()
 	pauseMenu.hide()
 	howToPlayScreen.hide()
+	optionsMenu.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	global.reset.connect(resetGame)
 	global.death.connect(death)
 	global.success.connect(win)
+	global.begin.connect(begin)
+	global.masterVolume = masterVolumeSlider.value
+	bus_idx = AudioServer.get_bus_index("Master")
+	if bus_idx != -1:
+		var linear_volume: float = masterVolumeSlider.value / 50.0
+		var db_volume := linear_to_db(linear_volume)
+		AudioServer.set_bus_volume_db(bus_idx, db_volume)
+	global.musicVolume = musicVolumeSlider.value
+	bus_idx = AudioServer.get_bus_index("Music")
+	if bus_idx != -1:
+		var linear_volume: float = global.musicVolume / 90.0
+		var db_volume := linear_to_db(linear_volume)
+		AudioServer.set_bus_volume_db(bus_idx, db_volume)
+		
+func begin():
+	if global.gamemode == 2:
+		endlessMusic.play()
 
 func _process(delta: float) -> void:
 	spinBox.value = global.difficulty
@@ -39,6 +65,9 @@ func _process(delta: float) -> void:
 			hide()
 
 func resetGame():
+	global.score = 0
+	if global.gamemode == 1:
+		mainRoundMusic.play()
 	get_viewport().gui_disable_input = true
 	global.game_active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
@@ -55,20 +84,26 @@ func resetGame():
 	
 func death():
 	deathScreenHum.play()
+	mainRoundMusic.stop()
+	endlessMusic.stop()
 	cursorCircle.roundTimer.stop()
 	titleScreen.hide()
 	gamemodeScreen.hide()
 	winScreen.hide()
 	deathScreen.show()
 	show()
+	if global.gamemode == 2:
+		if global.score > global.record:
+			global.record = global.score
 	
 func win():
 	if global.gamemode == 2:
 		return
+	mainRoundMusic.stop()
+	endlessMusic.stop()
 	deathScreenHum.play()
 	titleScreen.hide()
 	gamemodeScreen.hide()
-	winScreen.show()
 	deathScreen.show()
 	show()
 
@@ -80,7 +115,7 @@ func _on_begin_pressed() -> void:
 	gamemodeScreen.show()
 
 func _on_options_pressed() -> void:
-	pass 
+	optionsMenu.show()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
@@ -119,6 +154,8 @@ func _on_try_again_button_pressed() -> void:
 
 func _on_return_to_main_screen_button_pressed() -> void:
 	deathScreenHum.stop()
+	mainRoundMusic.stop()
+	endlessMusic.stop()
 	cursorCircle.roundTimer.stop()
 	if global.pause_toggle:
 		cursorCircle.toggle_pause()
@@ -150,3 +187,19 @@ func _on_return_pressed() -> void:
 func _on_return_2_pressed() -> void:
 	gamemodeScreen.hide()
 	titleScreen.show()
+	
+func _on_return_3_pressed() -> void:
+	optionsMenu.hide()
+
+func _on_brightness_drag_ended(value_changed: bool) -> void:
+	global.brightness = brightnessSlider.value
+	world_env.environment.adjustment_brightness = global.brightness/50.0
+	
+func _on_master_volume_drag_ended(value_changed: bool) -> void:
+	global.masterVolume = masterVolumeSlider.value
+
+func _on_music_volume_drag_ended(value_changed: bool) -> void:
+	global.musicVolume = musicVolumeSlider.value
+
+func _on_check_box_pressed() -> void:
+	global.skipDeathAnim = !global.skipDeathAnim

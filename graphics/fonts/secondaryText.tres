@@ -18,4 +18,5 @@ Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_u68oe")
 Button/styles/focus = SubResource("StyleBoxFlat_iotk1")
 Button/styles/normal = SubResource("StyleBoxFlat_glbon")
+CheckBox/colors/checkbox_unchecked_color = Color(4.6423554, 4.6423554, 4.6423554, 1)
 LineEdit/styles/focus = SubResource("StyleBoxFlat_w44g7")

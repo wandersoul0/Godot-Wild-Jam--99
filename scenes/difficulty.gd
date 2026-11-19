@@ -5,4 +5,4 @@ func _ready() -> void:
 	hide()
 
 func _process(delta: float) -> void:
-	label.text = (("Difficulty: ") + str(global.difficulty))
+	label.text = (("Difficulty: ") + str(int(global.difficulty)))

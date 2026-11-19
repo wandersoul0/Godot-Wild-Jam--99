@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 @onready var innercircle = $"../cursorCircle"
-@export var loss_speed = 1.3
-@export var gain_speed = 5.0
+@export var loss_speed = 1.9
+@export var gain_speed = 3.0
 var current_loss_speed
 var current_gain_speed
 
@@ -37,5 +37,4 @@ func _process(delta: float) -> void:
 				global.roundReady = false
 				global.dead = true
 				global.death.emit()
-				global.score = 0
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
