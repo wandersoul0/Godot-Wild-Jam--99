@@ -11,7 +11,8 @@ extends AnimatedSprite2D
 @export_range(0.0, 1.0) var deciever_chance = 0.1
 
 var slam_enabled = true
-var is_warping: bool = false
+var is_warping = false
+var is_slamming = false
 var default_scale
 var scale_mult = 0.0
 var current_max_interval
@@ -46,23 +47,32 @@ func toggle_pause() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 func resetGame() -> void:
+	scale_mult = 0.0
 	begin()
 	
 func begin():
+	get_viewport().gui_disable_input = false
 	roundTimer.stop()
-	roundTimer.wait_time = global.baseRoundTime
-	global.roundTime = global.baseRoundTime
+	if global.gamemode == 1:
+		roundTimer.wait_time = global.baseRoundTime
+		global.roundTime = global.baseRoundTime
+		roundTimer.one_shot = true
+	elif global.gamemode == 2:
+		global.difficulty = 300
+		roundTimer.wait_time = 1
+		global.roundTime = 0
+		roundTimer.one_shot = false
 	scale_mult = 0.0
 	global.score = 0
 	show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale_mult", 1.0, 2.5)
+	tween.tween_property(self, "scale_mult", 1.0, 1.0)
 	await tween.finished
 	await get_tree().create_timer(0.5).timeout
 	global.roundReady = true
-	roundTimer.start(global.baseRoundTime)
+	roundTimer.start()
 	var mult = clamp(global.difficulty, 0.0, 1000.0) / 700.0
 	current_slam_force = slam_force * mult
 	current_min_interval = min_interval / max(mult, 0.25)
@@ -70,19 +80,31 @@ func begin():
 
 func _process(_delta: float) -> void:
 	scale = default_scale * scale_mult
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") and global.game_active:
 		toggle_pause()
 	if global.pause_toggle == true or global.game_active == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif not is_warping:
-		global_position = get_global_mouse_position()
+		var mouse_pos = get_global_mouse_position()
+		if not is_slamming and mouse_pos.distance_to(global_position) > 250.0:
+			get_viewport().warp_mouse(get_viewport().get_canvas_transform() * global_position)
+			return
+		global_position = mouse_pos
 	if not roundTimer.is_stopped():
 		global.roundTime = roundTimer.time_left
 			
 func endGame() -> void:
-	global.roundReady = false
-	global.game_active = false
-	
+	roundTimer.stop()
+	if global.gamemode == 1:
+		global.roundReady = false
+		global.game_active = false
+		if global.difficulty > global.difficulty_record:
+			global.difficulty_record = global.difficulty
+	if global.gamemode == 2:
+		if global.score > global.record:
+			global.record = global.score
+	global.score = 0
+	global.success.emit()
 
 func on_slam_timer_timeout() -> void:
 	var min_int = current_min_interval if current_min_interval != null else min_interval
@@ -93,6 +115,7 @@ func on_slam_timer_timeout() -> void:
 		var random_force = (randf() + 0.3) * current_slam_force
 		var start_pos: Vector2 = global_position
 		var target_pos: Vector2 = start_pos + random_direction * random_force
+		is_slamming = true
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_OUT)
@@ -100,7 +123,8 @@ func on_slam_timer_timeout() -> void:
 			func(pos: Vector2):
 				var viewport_pos: Vector2 = get_viewport().get_canvas_transform() * pos
 				get_viewport().warp_mouse(viewport_pos),
-				start_pos,target_pos,slamSpeed)
+				start_pos, target_pos, slamSpeed)
+		tween.finished.connect(func(): is_slamming = false)
 		var mult = clamp(global.difficulty, 0.0, 1000.0) / 700.0
 		current_slam_force = slam_force * mult
 		current_min_interval = min_interval / max(mult, 0.25)
@@ -112,7 +136,7 @@ func on_slam_timer_timeout() -> void:
 			var spawn_pos = Vector2(
 			randf_range(100, screen_size.x - 100),
 			randf_range(100, screen_size.y - 100))
-			if randf() < usurper_chance:
+			"if randf() < usurper_chance:
 				global.spawn_usurper(spawn_pos)
 			else:
-				usurper_chance += 0.1
+				usurper_chance += 0.1"

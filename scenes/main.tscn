@@ -5,184 +5,13 @@
 [ext_resource type="Script" uid="uid://ddsmhvxv4t3wo" path="res://scripts/center_circle.gd" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://b7iwj7oci27iq" path="res://scripts/healthBar.gd" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://csjx5o8ifhyx6" path="res://graphics/whiteBAR.png" id="4_o6xl0"]
-[ext_resource type="Theme" uid="uid://c7oqav0bx4aqi" path="res://graphics/fonts/title.tres" id="4_trceg"]
 [ext_resource type="Texture2D" uid="uid://dam8a785v8fn7" path="res://graphics/redBAR.png" id="5_tipki"]
-[ext_resource type="Script" uid="uid://23j6n1m35701" path="res://scripts/death_screen_bg.gd" id="7_85g3d"]
-[ext_resource type="Script" uid="uid://cgl1hg1jqoos0" path="res://scripts/guiding_light.gd" id="8_tipki"]
-[ext_resource type="Script" uid="uid://b46w3j08g2286" path="res://scripts/guiding_light_eye.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://x453jipk30xi" path="res://scenes/main_menu.tscn" id="10_choun"]
 [ext_resource type="Theme" uid="uid://05cp4qufl6op" path="res://graphics/fonts/mainText.tres" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://bg4if8xv3aaa4" path="res://scripts/round_timer.gd" id="12_trceg"]
-[ext_resource type="Script" uid="uid://bgrrsf2xnk7t0" path="res://scenes/usurper_enemy.gd" id="14_a8y0u"]
-
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o6xl0"]
-_data = PackedByteArray("AAADAAUAAAABAAAAoAAAAIAAAABEBAAAUklGRjwEAABXRUJQVlA4TC8EAAAvn8AfEPfCoG0kR777J/H8YbZ8A8GgkSRFfQ8m0L9GLAZtIznylSfxBJ4/vZr5r0OqQKHAJcdzS4ISlDBKUiQkKUBRCqiAUoACBVQUqEDl8wpSkN9XgREhUQoYkRTkC6Fi4KfS/ytAaR72+zFwvT+4+kEC23UaYxjTMCfW9TBi2y6gqG2PIkuZdZxT6zqhYQw47m5Zdy9g4K/7v43u6kqqpqpxiOg/BEly4zZYIAU7VyPnH9zfLEGd8l1xqN4vP7+PoMFPsS6g1zt78fOf3lprdTIEU6Sr3s5/dWPu2tKr128+1ouWTXW0cASSpwv1fDL36+171fzm/uNnL+Unvde1Mlg+UcghJT9XvZ374sptouq70cLq1uGDZx+shTihLB49k+BQJA9XeC59/dtdmk6ng+Hkx8Xl9T1+GWx/C/cOvwzCoUtOLvTOfHb51l3yajAajceT+bXj53Wrh2iycsABOLwK6sTDICehqzVn567cIaqr6TrT6eD71eMXdbdHk3lud3iTF/3ZSV3o9b68Xo/XrRANFrbvN+2xDVV9xbrW6uAmLy2X8vsadEU2ehc+vXyrX1EVaqprfuP40VNr0Yy51b/TV9Rx3e3oXBAiu5Au5ubcVaKmAvFq+/iJX8Y0Lyr5wTY/YuvT9a5Q6Vypyvl3V5VQ09Hizsmjd80Dr4hIVbYMl4PKNR2v7DI/hFO7aLC8y8wluNSw6Q9rzO/gAi7dW9oSXBGwof9Vi4GX5XIgUfbtacOKcREX5nIAGWkAF+MiLs7lXBj2TT3OxbiIS3Q5IFCngItzcRkulcynoVF1gEtN81Glu/71kQ7/v4lA8nfNaBOSv2vmA+TvSr6pkr8r7SiTvyvlqJO/K91EJH/XzAfI3zXzAfJ3pZji032F6OmAB4icDniTiA6RYAyRXGvMNv7vUj6uqAm0HGZG9O9GTi71hARkjGrCLrkEl/LstC7thOFkpKnZSV2as5O7vCVOIhzufVNSu8SrZ+GSGRp46OyanaErPFqXZFDKm/LUebpaW5wr9JG09Ba6dNf/eIRa6abqk5R2IbZQiqvqV2LNb/sT23A5uIwxpMn8Nj+yNoUr8jC4PFy6GizvMnMKV+RhcAlcgcPkWmO2IZeiJkldDvqzE7hiDmPmHFy6w3UYkJGLWXDJl3EWLs2vd4QEICOxS3M5p2UIX9owu0CXA0IswHWASyXzaWhUHeBS03xU6a7/tAjV6bZnmhosn3TUFsri0bNO2sK9wy+LPj5+iCYrB1z2t0YeTea5tCYx4TJU9RXrWlndv9NX3B0ac0vnOi6k0fq+VPLPzTY/alioR+9i61BCN3cTkaqsRQpXCa2rwfIuMyOFq9ierDFbpHAV3MyMFK5ymozRnJ3CVVKDjHQ2kMhV1pPC2alchT0ZOhtI4ipyQVMAErmKfQIJXH8vxgEA")
-size_override = Vector2(160, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
-atlas = SubResource("PortableCompressedTexture2D_o6xl0")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y6deb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tipki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85g3d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_choun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ya4ey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8y0u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkv2x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8y0u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ya4ey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_choun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85g3d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tipki")
-}],
-"loop": 0,
-"name": &"Blink",
-"speed": 40.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbj1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_muem4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dp3eg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ld40")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gqmmt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yc10j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jscy8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pm3ni")
-}],
-"loop": 0,
-"name": &"Spawn",
-"speed": 10.0
-}]
-
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_tipki"]
-_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAABEAAAAUklGRjwAAABXRUJQVlA4TC8AAAAvH8AHEA8QEfMfQlEkqdFUIQAJSME6knjmet5RENH/CeDfEEiFYrPhJ8VmqRDCvwA=")
-size_override = Vector2(32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6deb"]
-atlas = SubResource("PortableCompressedTexture2D_tipki")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_og1vs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y6deb")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 10.0
-}]
+[ext_resource type="Script" uid="uid://bgrrsf2xnk7t0" path="res://scripts/usurper_enemy.gd" id="14_a8y0u"]
+[ext_resource type="Theme" uid="uid://dw4xacoqucj3u" path="res://graphics/fonts/secondaryText.tres" id="14_jbj1t"]
+[ext_resource type="Script" uid="uid://cnfypkd0iywlr" path="res://scripts/score_counter.gd" id="14_jkv2x"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o5qli"]
 _data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACWAAAAUklGRo4AAABXRUJQVlA4TIIAAAAvH8AHEBcgEEhy2p9tDYFAEuL+MgsEkhD3l1lAUOT/aAH/VXAQSZIi9aGIUbMS7hkc7KhZEYdtc0BDRP8nAMAywV3FedX6AlD439gBzcxGL7OSpGQuoyjMsWveHK2eRJen0epJ1Lw5Kl6HK6fAaiTTqBdn899MMR2AV60v2FXgLhMA")
@@ -413,96 +242,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="mainCam" type="Camera2D" parent="." unique_id=1089124989]
 
-[node name="deathScreenBG" type="CanvasLayer" parent="." unique_id=422012013]
-visible = false
-follow_viewport_enabled = true
-script = ExtResource("7_85g3d")
-
-[node name="deathScreenBG" type="ColorRect" parent="deathScreenBG" unique_id=166698981]
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = -0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-color = Color(0, 0, 0, 1)
-
-[node name="guidingLight" type="AnimatedSprite2D" parent="deathScreenBG" unique_id=344985830]
-texture_filter = 1
-position = Vector2(0, -3)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_y6deb")
-animation = &"Spawn"
-frame = 7
-script = ExtResource("8_tipki")
-metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://graphics/TFO.ase",
-"source_uid": 556641136538755319
-}
-metadata/_aseprite_wizard_source_file_hash_ = "b7f744c6edb57d9c45d1dde39cd10d90"
-
-[node name="guidingLightEye" type="AnimatedSprite2D" parent="deathScreenBG/guidingLight" unique_id=115272720]
-texture_filter = 1
-position = Vector2(0, 2.0000002)
-sprite_frames = SubResource("SpriteFrames_og1vs")
-script = ExtResource("9_85g3d")
-metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://graphics/TFO_Eye.ase",
-"source_uid": 1278564193723117272
-}
-metadata/_aseprite_wizard_source_file_hash_ = "df052cd484bd7bacdf5f2a0ab5162319"
-
-[node name="tryAgainButton" type="Button" parent="deathScreenBG" unique_id=427157256]
-offset_left = 66.0
-offset_top = -11.0
-offset_right = 132.0
-offset_bottom = 11.0
-theme = ExtResource("4_trceg")
-text = "Try Again"
-alignment = 0
-
-[node name="returnToMainScreenButton" type="Button" parent="deathScreenBG" unique_id=1721089384]
-offset_left = -182.0
-offset_top = -11.0
-offset_right = -71.0
-offset_bottom = 11.0
-theme = ExtResource("4_trceg")
-text = "Return To Title"
-alignment = 2
-
-[node name="mainMenu" type="CanvasLayer" parent="." unique_id=1563201833]
-follow_viewport_enabled = true
-
-[node name="mainMenu" parent="mainMenu" unique_id=1609928965 instance=ExtResource("10_choun")]
-visible = false
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
-
 [node name="mainGame" type="Node2D" parent="." unique_id=428112782]
 
 [node name="healthBar" type="TextureProgressBar" parent="mainGame" unique_id=1363721034]
@@ -577,20 +316,32 @@ wait_time = 60.0
 one_shot = true
 
 [node name="roundTimer" type="Label" parent="mainGame" unique_id=1467107411]
-offset_left = -32.0
+offset_left = -579.0
 offset_top = -330.0
-offset_right = 32.0
+offset_right = 567.0
 offset_bottom = -228.0
 theme = ExtResource("11_eb6dy")
 theme_override_font_sizes/font_size = 80
 text = "60"
+horizontal_alignment = 2
 script = ExtResource("12_trceg")
+
+[node name="scoreCounter" type="Label" parent="mainGame" unique_id=1554911488]
+offset_left = -158.0
+offset_top = -330.0
+offset_right = 160.0
+offset_bottom = -228.0
+theme = ExtResource("14_jbj1t")
+theme_override_font_sizes/font_size = 80
+text = "60"
+horizontal_alignment = 1
+script = ExtResource("14_jkv2x")
 
 [node name="usurperEnemy" type="AnimatedSprite2D" parent="mainGame" unique_id=1246087285]
 texture_filter = 1
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_2cjbq")
-animation = &"Death"
+animation = &"nuetral"
 script = ExtResource("14_a8y0u")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -610,4 +361,9 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "c19c40be2b2c4dc699e3e1329db4e647"
 
-[connection signal="pressed" from="deathScreenBG/tryAgainButton" to="deathScreenBG" method="_on_try_again_button_pressed"]
+[node name="mainMenu" parent="." unique_id=1609928965 instance=ExtResource("10_choun")]
+visible = false
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0

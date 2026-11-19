@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://x453jipk30xi"]
+[gd_scene format=4 uid="uid://x453jipk30xi"]
 
 [ext_resource type="FontFile" uid="uid://qt6lhpqg00ef" path="res://graphics/fonts/title.TTF" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://ccumb5kn67wxx" path="res://scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Theme" uid="uid://05cp4qufl6op" path="res://graphics/fonts/mainText.tres" id="2_fu7sn"]
 [ext_resource type="FontFile" uid="uid://b5kjq3p0cn5gy" path="res://graphics/fonts/main.otf" id="4_jix8l"]
+[ext_resource type="Script" uid="uid://ccojn3a1i2pqd" path="res://scripts/buttonSounds.gd" id="4_qywvv"]
 [ext_resource type="Texture2D" uid="uid://d0850rbs4lvjs" path="res://graphics/gamemodeLogosBare1.png" id="5_iotk1"]
 [ext_resource type="Theme" uid="uid://c7oqav0bx4aqi" path="res://graphics/fonts/title.tres" id="5_w44g7"]
+[ext_resource type="Theme" uid="uid://dw4xacoqucj3u" path="res://graphics/fonts/secondaryText.tres" id="6_5pajh"]
+[ext_resource type="Script" uid="uid://beru21sfcv1wg" path="res://scripts/record.gd" id="6_7b55j"]
 [ext_resource type="Texture2D" uid="uid://dgijh804msuvd" path="res://graphics/gamemodeLogosBare2.png" id="6_w44g7"]
 [ext_resource type="Texture2D" uid="uid://3ujkwll6i0rh" path="res://graphics/gamemodeLogosBare3.png" id="7_cm266"]
 [ext_resource type="Texture2D" uid="uid://cg0ayf57h0ow3" path="res://graphics/gamemodeLogosBare4.png" id="8_g8g3n"]
@@ -14,6 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://b82oicbbivgvu" path="res://graphics/gamemodeLogosBare7.png" id="11_mg3m2"]
 [ext_resource type="Texture2D" uid="uid://djwf1o3gy8rkv" path="res://graphics/gamemodeLogosBare8.png" id="12_ojb7r"]
 [ext_resource type="Texture2D" uid="uid://sivrm7pgopdv" path="res://graphics/infinityLogo.png" id="14_w44g7"]
+[ext_resource type="Script" uid="uid://cgl1hg1jqoos0" path="res://scripts/guiding_light.gd" id="18_gw5y6"]
+[ext_resource type="Script" uid="uid://b46w3j08g2286" path="res://scripts/guiding_light_eye.gd" id="19_svtp6"]
+[ext_resource type="Script" uid="uid://ct8lwaotmqfq3" path="res://scripts/score.gd" id="20_1dfpl"]
+[ext_resource type="AudioStream" uid="uid://0n41a3ef4c7o" path="res://audio/sfx/click1.wav" id="20_8egab"]
+[ext_resource type="Script" uid="uid://dm7mjmv6bljut" path="res://scripts/success_3.gd" id="20_qywvv"]
+[ext_resource type="Script" uid="uid://dd2tt1qa3cde0" path="res://scenes/difficulty.gd" id="21_3wgol"]
+[ext_resource type="AudioStream" uid="uid://b2igielhfinnf" path="res://audio/sfx/click2.wav" id="21_svtp6"]
+[ext_resource type="AudioStream" uid="uid://3mxnorj71s2u" path="res://audio/sfx/deathScreen174HzAudio.wav" id="22_1dfpl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -39,6 +50,175 @@ Button/styles/pressed = SubResource("StyleBoxFlat_7vrkn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcpgj"]
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o6xl0"]
+_data = PackedByteArray("AAADAAUAAAABAAAAoAAAAIAAAABEBAAAUklGRjwEAABXRUJQVlA4TC8EAAAvn8AfEPfCoG0kR777J/H8YbZ8A8GgkSRFfQ8m0L9GLAZtIznylSfxBJ4/vZr5r0OqQKHAJcdzS4ISlDBKUiQkKUBRCqiAUoACBVQUqEDl8wpSkN9XgREhUQoYkRTkC6Fi4KfS/ytAaR72+zFwvT+4+kEC23UaYxjTMCfW9TBi2y6gqG2PIkuZdZxT6zqhYQw47m5Zdy9g4K/7v43u6kqqpqpxiOg/BEly4zZYIAU7VyPnH9zfLEGd8l1xqN4vP7+PoMFPsS6g1zt78fOf3lprdTIEU6Sr3s5/dWPu2tKr128+1ouWTXW0cASSpwv1fDL36+171fzm/uNnL+Unvde1Mlg+UcghJT9XvZ374sptouq70cLq1uGDZx+shTihLB49k+BQJA9XeC59/dtdmk6ng+Hkx8Xl9T1+GWx/C/cOvwzCoUtOLvTOfHb51l3yajAajceT+bXj53Wrh2iycsABOLwK6sTDICehqzVn567cIaqr6TrT6eD71eMXdbdHk3lud3iTF/3ZSV3o9b68Xo/XrRANFrbvN+2xDVV9xbrW6uAmLy2X8vsadEU2ehc+vXyrX1EVaqprfuP40VNr0Yy51b/TV9Rx3e3oXBAiu5Au5ubcVaKmAvFq+/iJX8Y0Lyr5wTY/YuvT9a5Q6Vypyvl3V5VQ09Hizsmjd80Dr4hIVbYMl4PKNR2v7DI/hFO7aLC8y8wluNSw6Q9rzO/gAi7dW9oSXBGwof9Vi4GX5XIgUfbtacOKcREX5nIAGWkAF+MiLs7lXBj2TT3OxbiIS3Q5IFCngItzcRkulcynoVF1gEtN81Glu/71kQ7/v4lA8nfNaBOSv2vmA+TvSr6pkr8r7SiTvyvlqJO/K91EJH/XzAfI3zXzAfJ3pZji032F6OmAB4icDniTiA6RYAyRXGvMNv7vUj6uqAm0HGZG9O9GTi71hARkjGrCLrkEl/LstC7thOFkpKnZSV2as5O7vCVOIhzufVNSu8SrZ+GSGRp46OyanaErPFqXZFDKm/LUebpaW5wr9JG09Ba6dNf/eIRa6abqk5R2IbZQiqvqV2LNb/sT23A5uIwxpMn8Nj+yNoUr8jC4PFy6GizvMnMKV+RhcAlcgcPkWmO2IZeiJkldDvqzE7hiDmPmHFy6w3UYkJGLWXDJl3EWLs2vd4QEICOxS3M5p2UIX9owu0CXA0IswHWASyXzaWhUHeBS03xU6a7/tAjV6bZnmhosn3TUFsri0bNO2sK9wy+LPj5+iCYrB1z2t0YeTea5tCYx4TJU9RXrWlndv9NX3B0ac0vnOi6k0fq+VPLPzTY/alioR+9i61BCN3cTkaqsRQpXCa2rwfIuMyOFq9ierDFbpHAV3MyMFK5ymozRnJ3CVVKDjHQ2kMhV1pPC2alchT0ZOhtI4ipyQVMAErmKfQIJXH8vxgEA")
+size_override = Vector2(160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = SubResource("PortableCompressedTexture2D_o6xl0")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qywvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkv2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}],
+"loop": 0,
+"name": &"Blink",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc10j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": 0,
+"name": &"Spawn",
+"speed": 10.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_tipki"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAABEAAAAUklGRjwAAABXRUJQVlA4TC8AAAAvH8AHEA8QEfMfQlEkqdFUIQAJSME6knjmet5RENH/CeDfEEiFYrPhJ8VmqRDCvwA=")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6deb"]
+atlas = SubResource("PortableCompressedTexture2D_tipki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wgol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6deb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="mainMenu" type="Control" unique_id=1609928965]
 layout_mode = 3
 anchors_preset = 15
@@ -48,7 +228,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu7sn")
 
-[node name="BG" type="ColorRect" parent="." unique_id=1323374972]
+[node name="bg" type="ColorRect" parent="." unique_id=1323374972]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -60,7 +240,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Title" type="Label" parent="titleScreen" unique_id=1435493973]
+[node name="title" type="Label" parent="titleScreen" unique_id=1435493973]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -76,7 +256,7 @@ theme_override_fonts/font = ExtResource("1_7vrkn")
 theme_override_font_sizes/font_size = 85
 text = "Dead Center"
 
-[node name="Begin" type="Button" parent="titleScreen" unique_id=1798338808]
+[node name="begin" type="Button" parent="titleScreen" unique_id=1798338808]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -90,8 +270,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
 text = "Play"
+script = ExtResource("4_qywvv")
 
-[node name="Options" type="Button" parent="titleScreen" unique_id=1057455110]
+[node name="options" type="Button" parent="titleScreen" unique_id=1057455110]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -106,8 +287,9 @@ grow_vertical = 2
 theme = ExtResource("2_fu7sn")
 text = "Options
 "
+script = ExtResource("4_qywvv")
 
-[node name="Quit" type="Button" parent="titleScreen" unique_id=180450714]
+[node name="quit" type="Button" parent="titleScreen" unique_id=180450714]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -122,8 +304,10 @@ grow_vertical = 2
 theme = ExtResource("2_fu7sn")
 text = "Quit
 "
+script = ExtResource("4_qywvv")
 
 [node name="gamemodeScreen" type="Control" parent="." unique_id=1019105967]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -172,6 +356,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
 text = "Begin"
+script = ExtResource("4_qywvv")
+
+[node name="record" type="Label" parent="gamemodeScreen" unique_id=721347283]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 160.0
+offset_right = 409.0
+offset_bottom = 191.0
+theme = ExtResource("6_5pajh")
+text = "Personal Record: 0"
+script = ExtResource("6_7b55j")
 
 [node name="normalOptions" type="Control" parent="gamemodeScreen" unique_id=385967507]
 anchors_preset = 0
@@ -191,6 +386,7 @@ button_group = SubResource("ButtonGroup_iotk1")
 texture_normal = ExtResource("5_iotk1")
 texture_pressed = ExtResource("6_w44g7")
 texture_hover = ExtResource("6_w44g7")
+script = ExtResource("4_qywvv")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -222,6 +418,7 @@ button_group = SubResource("ButtonGroup_iotk1")
 texture_normal = ExtResource("7_cm266")
 texture_pressed = ExtResource("8_g8g3n")
 texture_hover = ExtResource("8_g8g3n")
+script = ExtResource("4_qywvv")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -253,6 +450,7 @@ button_group = SubResource("ButtonGroup_iotk1")
 texture_normal = ExtResource("9_8u0te")
 texture_pressed = ExtResource("10_oiatc")
 texture_hover = ExtResource("10_oiatc")
+script = ExtResource("4_qywvv")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -284,6 +482,7 @@ button_group = SubResource("ButtonGroup_iotk1")
 texture_normal = ExtResource("11_mg3m2")
 texture_pressed = ExtResource("12_ojb7r")
 texture_hover = ExtResource("12_ojb7r")
+script = ExtResource("4_qywvv")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -348,45 +547,49 @@ horizontal_alignment = 1
 
 [node name="easyLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=387591563]
 layout_mode = 0
-offset_left = 656.0
-offset_top = 232.0
-offset_right = 761.0
-offset_bottom = 259.0
+offset_left = 613.0
+offset_top = 238.0
+offset_right = 718.0
+offset_bottom = 265.0
 theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "700"
 horizontal_alignment = 1
 
 [node name="bulletLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1879429717]
 layout_mode = 0
-offset_left = 907.0
-offset_top = 232.0
-offset_right = 1012.0
-offset_bottom = 259.0
+offset_left = 864.0
+offset_top = 238.0
+offset_right = 969.0
+offset_bottom = 265.0
 theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "900"
 horizontal_alignment = 1
 
 [node name="semiBulletLabel3" type="Label" parent="gamemodeScreen/normalOptions" unique_id=2062533672]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 232.0
-offset_right = 253.0
-offset_bottom = 259.0
+offset_left = 108.0
+offset_top = 237.0
+offset_right = 213.0
+offset_bottom = 264.0
 theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "300"
 horizontal_alignment = 1
 
 [node name="normalLabel2" type="Label" parent="gamemodeScreen/normalOptions" unique_id=1863232074]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 232.0
-offset_right = 505.0
-offset_bottom = 259.0
+offset_left = 359.0
+offset_top = 238.0
+offset_right = 464.0
+offset_bottom = 265.0
 theme = ExtResource("5_w44g7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "500"
 horizontal_alignment = 1
 
@@ -487,9 +690,250 @@ position = Vector2(596.0001, 316.00003)
 scale = Vector2(0.3610478, 0.36104783)
 texture = ExtResource("14_w44g7")
 
-[connection signal="pressed" from="titleScreen/Begin" to="." method="_on_begin_pressed"]
-[connection signal="pressed" from="titleScreen/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="titleScreen/Quit" to="." method="_on_quit_pressed"]
+[node name="deathScreen" type="Control" parent="." unique_id=588241483]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="guidingLight" type="AnimatedSprite2D" parent="deathScreen" unique_id=745054942]
+texture_filter = 1
+position = Vector2(578, 319)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qywvv")
+animation = &"Spawn"
+script = ExtResource("18_gw5y6")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/TFO.ase",
+"source_uid": 556641136538755319
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b7f744c6edb57d9c45d1dde39cd10d90"
+
+[node name="guidingLightEye" type="AnimatedSprite2D" parent="deathScreen/guidingLight" unique_id=2028213059]
+texture_filter = 1
+position = Vector2(0, 2.0000002)
+sprite_frames = SubResource("SpriteFrames_3wgol")
+script = ExtResource("19_svtp6")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/TFO_Eye.ase",
+"source_uid": 1278564193723117272
+}
+metadata/_aseprite_wizard_source_file_hash_ = "df052cd484bd7bacdf5f2a0ab5162319"
+
+[node name="tryAgainButton" type="Button" parent="deathScreen" unique_id=176611995]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 311.0
+offset_right = 718.0
+offset_bottom = 333.0
+theme = ExtResource("5_w44g7")
+text = "Play Again"
+alignment = 0
+script = ExtResource("4_qywvv")
+
+[node name="returnToMainScreenButton" type="Button" parent="deathScreen" unique_id=1677050191]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 311.0
+offset_right = 507.0
+offset_bottom = 333.0
+theme = ExtResource("5_w44g7")
+theme_override_font_sizes/font_size = 20
+text = "Return To Title"
+alignment = 2
+script = ExtResource("4_qywvv")
+
+[node name="score" type="Label" parent="deathScreen" unique_id=1928373982]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 334.0
+offset_right = 693.0
+offset_bottom = 357.0
+theme = ExtResource("6_5pajh")
+theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
+theme_override_font_sizes/font_size = 20
+text = "Score:"
+script = ExtResource("20_1dfpl")
+
+[node name="difficulty" type="Label" parent="deathScreen" unique_id=1974135411]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 334.0
+offset_right = 443.0
+offset_bottom = 357.0
+theme = ExtResource("6_5pajh")
+theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
+theme_override_font_sizes/font_size = 20
+text = "Difficulty:"
+script = ExtResource("21_3wgol")
+
+[node name="winScreen" type="Control" parent="." unique_id=1475992141]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="success" type="Label" parent="winScreen" unique_id=1409532013]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.8625
+anchor_top = 0.45
+anchor_right = 18.1125
+anchor_bottom = 3.075
+grow_horizontal = 2
+theme = ExtResource("5_w44g7")
+theme_override_font_sizes/font_size = 100
+text = "Success"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="success2" type="Label" parent="winScreen" unique_id=109247333]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.675
+anchor_top = 5.275
+anchor_right = 17.55
+anchor_bottom = 6.5
+grow_horizontal = 2
+theme = ExtResource("6_5pajh")
+theme_override_font_sizes/font_size = 40
+text = "Time: 1 Miunte"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="success3" type="Label" parent="winScreen" unique_id=1235405831]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.675
+anchor_top = 4.0
+anchor_right = 17.55
+anchor_bottom = 5.125
+grow_horizontal = 2
+theme = ExtResource("6_5pajh")
+theme_override_font_sizes/font_size = 40
+text = "Difficulty: 1000"
+horizontal_alignment = 1
+script = ExtResource("20_qywvv")
+metadata/_edit_use_anchors_ = true
+
+[node name="pauseMenu" type="Control" parent="." unique_id=1170847839]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pauseBG" type="ColorRect" parent="pauseMenu" unique_id=2023302525]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="gamePaused" type="Label" parent="pauseMenu" unique_id=1759321539]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.5875
+anchor_top = 2.35
+anchor_right = 20.3875
+anchor_bottom = 4.975
+grow_horizontal = 2
+theme = ExtResource("5_w44g7")
+theme_override_font_sizes/font_size = 100
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="unpause" type="Button" parent="pauseMenu" unique_id=2054566284]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_top = 244.0
+offset_right = 616.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Unpause"
+script = ExtResource("4_qywvv")
+
+[node name="options" type="Button" parent="pauseMenu" unique_id=1475255137]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 319.0
+offset_right = 626.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Options
+"
+script = ExtResource("4_qywvv")
+
+[node name="returnToMainMenu" type="Button" parent="pauseMenu" unique_id=1103100741]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 400.0
+offset_right = 626.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+text = "Return To Main Menu
+"
+script = ExtResource("4_qywvv")
+
+[node name="sound" type="Control" parent="." unique_id=1429411355]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="buttonClick1" type="AudioStreamPlayer" parent="sound" unique_id=1400706703]
+stream = ExtResource("20_8egab")
+
+[node name="buttonClick2" type="AudioStreamPlayer" parent="sound" unique_id=1655427465]
+stream = ExtResource("21_svtp6")
+
+[node name="deathScreenHum" type="AudioStreamPlayer" parent="sound" unique_id=312407251]
+stream = ExtResource("22_1dfpl")
+volume_db = -7.325
+
+[connection signal="pressed" from="titleScreen/begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="titleScreen/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="titleScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="tab_changed" from="gamemodeScreen/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_round_pressed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_pressed"]
@@ -498,3 +942,9 @@ texture = ExtResource("14_w44g7")
 [connection signal="pressed" from="gamemodeScreen/normalOptions/semiBulletLogo" to="." method="_on_semi_bullet_logo_pressed"]
 [connection signal="pressed" from="gamemodeScreen/normalOptions/bulletLogo" to="." method="_on_bullet_logo_pressed"]
 [connection signal="value_changed" from="gamemodeScreen/normalOptions/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="deathScreen/tryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="deathScreen/tryAgainButton" to="deathScreen" method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="deathScreen/returnToMainScreenButton" to="." method="_on_return_to_main_screen_button_pressed"]
+[connection signal="pressed" from="pauseMenu/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="pauseMenu/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="pauseMenu/returnToMainMenu" to="." method="_on_return_to_main_screen_button_pressed"]

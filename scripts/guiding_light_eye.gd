@@ -13,8 +13,6 @@ func _ready():
 
 func death():
 	global_position = start_pos
-	await get_tree().create_timer(2.5).timeout
-	lookReady = true
 
 func _process(delta):
 	if global.game_active == false and global.dead == true and lookReady == true:
