@@ -8,6 +8,7 @@ extends Control
 @onready var deathScreen = $deathScreen
 @onready var winScreen = $winScreen
 @onready var pauseMenu = $pauseMenu
+@onready var howToPlayScreen = $howToPlay
 @onready var deathScreenHum = $sound/deathScreenHum
 var show_toggle = true
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	deathScreen.hide()
 	winScreen.hide()
 	pauseMenu.hide()
+	howToPlayScreen.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	global.reset.connect(resetGame)
 	global.death.connect(death)
@@ -136,3 +138,15 @@ func _on_return_to_main_screen_button_pressed() -> void:
 	
 func _on_unpause_pressed() -> void:
 	cursorCircle.toggle_pause()
+
+func _on_how_to_play_pressed() -> void:
+	howToPlayScreen.show()
+	titleScreen.hide()
+
+func _on_return_pressed() -> void:
+	howToPlayScreen.hide()
+	titleScreen.show()
+
+func _on_return_2_pressed() -> void:
+	gamemodeScreen.hide()
+	titleScreen.show()

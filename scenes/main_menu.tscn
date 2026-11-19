@@ -306,8 +306,65 @@ text = "Quit
 "
 script = ExtResource("4_qywvv")
 
-[node name="gamemodeScreen" type="Control" parent="." unique_id=1019105967]
+[node name="howToPlay" type="Button" parent="titleScreen" unique_id=1556285866]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 897.0
+offset_top = -8.0
+offset_right = 1141.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_5pajh")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 48
+text = "How To Play"
+script = ExtResource("4_qywvv")
+
+[node name="howToPlay" type="Control" parent="." unique_id=1968719984]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="title" type="Label" parent="howToPlay" unique_id=899800327]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 455.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_7vrkn")
+theme_override_font_sizes/font_size = 85
+text = "Dead Center"
+
+[node name="return" type="Button" parent="howToPlay" unique_id=1643294891]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 77.0
+offset_right = 129.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 41
+text = "Return"
+alignment = 0
+script = ExtResource("4_qywvv")
+
+[node name="gamemodeScreen" type="Control" parent="." unique_id=1019105967]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -326,9 +383,9 @@ text = "Gamemode"
 [node name="TabBar" type="TabBar" parent="gamemodeScreen" unique_id=878369842]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 97.0
-offset_right = 173.0
-offset_bottom = 132.0
+offset_top = 137.0
+offset_right = 282.0
+offset_bottom = 195.0
 size_flags_vertical = 0
 theme = ExtResource("5_w44g7")
 theme_override_font_sizes/font_size = 47
@@ -361,12 +418,30 @@ script = ExtResource("4_qywvv")
 [node name="record" type="Label" parent="gamemodeScreen" unique_id=721347283]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 160.0
+offset_top = 200.0
 offset_right = 409.0
-offset_bottom = 191.0
+offset_bottom = 231.0
 theme = ExtResource("6_5pajh")
 text = "Personal Record: 0"
 script = ExtResource("6_7b55j")
+
+[node name="return2" type="Button" parent="gamemodeScreen" unique_id=408637066]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 72.0
+offset_right = 129.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 41
+text = "Return"
+alignment = 0
+script = ExtResource("4_qywvv")
 
 [node name="normalOptions" type="Control" parent="gamemodeScreen" unique_id=385967507]
 anchors_preset = 0
@@ -601,7 +676,7 @@ offset_right = 612.0
 offset_bottom = 630.0
 theme = ExtResource("2_fu7sn")
 theme_override_font_sizes/font_size = 28
-text = "Round Time: 1 Minute. Base game mode. Test your skills against a series of increasingly challenging encounters. Survive, adapt, and overcome every threat standing between you and victory."
+text = "Round Time: 1 Minute. Base game mode. Survive, adapt, and win on all levels of difficulty. KEEP YOUR CURSOR IN THE CENTER."
 vertical_alignment = 2
 autowrap_mode = 3
 
@@ -669,7 +744,7 @@ offset_right = 636.0
 offset_bottom = 630.0
 theme = ExtResource("2_fu7sn")
 theme_override_font_sizes/font_size = 28
-text = "Round Time: Infinite. Endless Game mode. Survive for as long as possible as the difficulty ramps up and face enemies exclusive to Endless. Adapt to the growing pressure and push your limits to achieve the highest score."
+text = "Round Time: Infinite. Endless Game mode. Survive for as long as possible as the difficulty ramps up. Adapt to the growing pressure and push your limits to achieve the highest score possible."
 vertical_alignment = 2
 autowrap_mode = 3
 
@@ -748,7 +823,8 @@ offset_left = 644.0
 offset_top = 311.0
 offset_right = 718.0
 offset_bottom = 333.0
-theme = ExtResource("5_w44g7")
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 20
 text = "Play Again"
 alignment = 0
 script = ExtResource("4_qywvv")
@@ -759,7 +835,7 @@ offset_left = 396.0
 offset_top = 311.0
 offset_right = 507.0
 offset_bottom = 333.0
-theme = ExtResource("5_w44g7")
+theme = ExtResource("2_fu7sn")
 theme_override_font_sizes/font_size = 20
 text = "Return To Title"
 alignment = 2
@@ -771,22 +847,49 @@ offset_left = 644.0
 offset_top = 334.0
 offset_right = 693.0
 offset_bottom = 357.0
-theme = ExtResource("6_5pajh")
+theme = ExtResource("2_fu7sn")
 theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
 theme_override_font_sizes/font_size = 20
 text = "Score:"
 script = ExtResource("20_1dfpl")
 
+[node name="deathLine1" type="Label" parent="deathScreen" unique_id=1113164358]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 200.0
+offset_right = 855.0
+offset_bottom = 229.0
+theme = ExtResource("6_5pajh")
+theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
+theme_override_font_sizes/font_size = 27
+text = "it's not as hard as you think it is."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="deathLine2" type="Label" parent="deathScreen" unique_id=1766875514]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 418.0
+offset_right = 855.0
+offset_bottom = 447.0
+theme = ExtResource("6_5pajh")
+theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
+theme_override_font_sizes/font_size = 27
+text = "endure, so you can endure even more."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="difficulty" type="Label" parent="deathScreen" unique_id=1974135411]
 layout_mode = 0
-offset_left = 394.0
+offset_left = 399.0
 offset_top = 334.0
-offset_right = 443.0
+offset_right = 532.0
 offset_bottom = 357.0
-theme = ExtResource("6_5pajh")
+theme = ExtResource("2_fu7sn")
 theme_override_colors/font_color = Color(0.7313316, 0.7313315, 0.73133147, 1)
 theme_override_font_sizes/font_size = 20
 text = "Difficulty:"
+horizontal_alignment = 1
 script = ExtResource("21_3wgol")
 
 [node name="winScreen" type="Control" parent="." unique_id=1475992141]
@@ -934,9 +1037,12 @@ volume_db = -7.325
 [connection signal="pressed" from="titleScreen/begin" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="titleScreen/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="titleScreen/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="titleScreen/howToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="howToPlay/return" to="." method="_on_return_pressed"]
 [connection signal="tab_changed" from="gamemodeScreen/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_round_pressed"]
 [connection signal="pressed" from="gamemodeScreen/beginRound" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="gamemodeScreen/return2" to="." method="_on_return_2_pressed"]
 [connection signal="pressed" from="gamemodeScreen/normalOptions/easyLogo" to="." method="_on_easy_logo_pressed"]
 [connection signal="pressed" from="gamemodeScreen/normalOptions/normalLogo" to="." method="_on_normal_logo_pressed"]
 [connection signal="pressed" from="gamemodeScreen/normalOptions/semiBulletLogo" to="." method="_on_semi_bullet_logo_pressed"]
