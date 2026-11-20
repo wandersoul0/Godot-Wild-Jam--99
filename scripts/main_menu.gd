@@ -1,6 +1,8 @@
 extends Control
 @onready var cursorCircle = get_node_or_null("/root/main/mainGame/cursorCircle")
 @onready var world_env = get_node_or_null("/root/main/WorldEnv")
+@onready var hover_sound = get_node("/root/main/mainMenu/sound/buttonClick2")
+@onready var pressed_sound = get_node("/root/main/mainMenu/sound/buttonClick1")
 @onready var titleScreen = $titleScreen
 @onready var gamemodeScreen = $gamemodeScreen
 @onready var endlessOptions = $gamemodeScreen/endlessOptions
@@ -11,18 +13,21 @@ extends Control
 @onready var pauseMenu = $pauseMenu
 @onready var howToPlayScreen = $howToPlay
 @onready var optionsMenu = $options
+@onready var startScreen = $startScreen
 @onready var deathScreenHum = $sound/deathScreenHum
 @onready var mainRoundMusic = $sound/mainRoundMusic
 @onready var endlessMusic = $sound/endlessMusic
 @onready var brightnessSlider = $options/brightness
 @onready var musicVolumeSlider = $options/musicVolume
 @onready var masterVolumeSlider = $options/masterVolume
+signal any_input_pressed
 var show_toggle = true
 var bus_idx
 
 func _ready() -> void:
 	show()
 	titleScreen.show()
+	startScreen.show()
 	gamemodeScreen.hide()
 	deathScreen.hide()
 	winScreen.hide()
@@ -35,17 +40,23 @@ func _ready() -> void:
 	global.success.connect(win)
 	global.begin.connect(begin)
 	global.masterVolume = masterVolumeSlider.value
-	bus_idx = AudioServer.get_bus_index("Master")
-	if bus_idx != -1:
-		var linear_volume: float = masterVolumeSlider.value / 50.0
-		var db_volume := linear_to_db(linear_volume)
-		AudioServer.set_bus_volume_db(bus_idx, db_volume)
-	global.musicVolume = musicVolumeSlider.value
-	bus_idx = AudioServer.get_bus_index("Music")
-	if bus_idx != -1:
-		var linear_volume: float = global.musicVolume / 90.0
-		var db_volume := linear_to_db(linear_volume)
-		AudioServer.set_bus_volume_db(bus_idx, db_volume)
+	await get_tree().create_timer(0.5).timeout
+	await any_input_pressed
+	pressed_sound.play()
+	var tween := create_tween()
+	tween.tween_property(startScreen, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	startScreen.modulate.a = 1.0
+	startScreen.hide()
+
+func _input(event: InputEvent) -> void:
+	if not startScreen.visible:
+		return
+	if event is InputEventMouseMotion or event is InputEventJoypadMotion:
+		return
+	if event.is_pressed() and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		any_input_pressed.emit()
 		
 func begin():
 	if global.gamemode == 2:
@@ -63,6 +74,16 @@ func _process(delta: float) -> void:
 		if show_toggle == false:
 			show_toggle = true
 			hide()
+	bus_idx = AudioServer.get_bus_index("Master")
+	if bus_idx != -1:
+		var linear_volume: float = masterVolumeSlider.value / 50.0
+		var db_volume := linear_to_db(linear_volume)
+		AudioServer.set_bus_volume_db(bus_idx, db_volume)
+	bus_idx = AudioServer.get_bus_index("Music")
+	if bus_idx != -1:
+		var linear_volume: float = global.musicVolume / 90.0
+		var db_volume := linear_to_db(linear_volume)
+		AudioServer.set_bus_volume_db(bus_idx, db_volume)
 
 func resetGame():
 	global.score = 0

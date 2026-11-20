@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ccojn3a1i2pqd" path="res://scripts/buttonSounds.gd" id="4_qywvv"]
 [ext_resource type="Texture2D" uid="uid://d0850rbs4lvjs" path="res://graphics/gamemodeLogosBare1.png" id="5_iotk1"]
 [ext_resource type="Theme" uid="uid://c7oqav0bx4aqi" path="res://graphics/fonts/title.tres" id="5_w44g7"]
+[ext_resource type="Texture2D" uid="uid://bise2blco3tcp" path="res://graphics/Screenshot 2026-11-20 081310.png" id="6_1a85y"]
 [ext_resource type="Theme" uid="uid://dw4xacoqucj3u" path="res://graphics/fonts/secondaryText.tres" id="6_5pajh"]
 [ext_resource type="Script" uid="uid://beru21sfcv1wg" path="res://scripts/record.gd" id="6_7b55j"]
 [ext_resource type="Texture2D" uid="uid://dgijh804msuvd" path="res://graphics/gamemodeLogosBare2.png" id="6_w44g7"]
@@ -27,6 +28,45 @@
 [ext_resource type="AudioStream" uid="uid://3mxnorj71s2u" path="res://audio/sfx/deathScreen174HzAudio.wav" id="22_1dfpl"]
 [ext_resource type="AudioStream" uid="uid://b5xyqr0o4cd4a" path="res://audio/music/mainRoundAudio.wav" id="26_1acrt"]
 [ext_resource type="AudioStream" uid="uid://bg50b75115wik" path="res://audio/music/endlessMusicLoop.wav" id="27_vr8o3"]
+[ext_resource type="Texture2D" uid="uid://d2wypjv61a2lo" path="res://graphics/images.png" id="29_hl5e0"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_vr8o3"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAABSAAAAUklGRkoAAABXRUJQVlA4TD0AAAAvH8AHEA8w93M/9/Mf8GAVSVajqUIAEpCCNKwhic+c052DiP5PAP9bAU6CV5A1VLNr7aWaXdbgFTgJVvA/AA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a85y"]
+atlas = SubResource("PortableCompressedTexture2D_vr8o3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hl5e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a85y")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_1a85y"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACWAAAAUklGRo4AAABXRUJQVlA4TIIAAAAvH8AHEBcgEEhy2p9tDYFAEuL+MgsEkhD3l1lAUOT/aAH/VXAQSZIi9aGIUbMS7hkc7KhZEYdtc0BDRP8nAMAywV3FedX6AlD439gBzcxGL7OSpGQuoyjMsWveHK2eRJen0epJ1Lw5Kl6HK6fAaiTTqBdn899MMR2AV60v2FXgLhMA")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl5e0"]
+atlas = SubResource("PortableCompressedTexture2D_1a85y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_engjn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl5e0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -221,6 +261,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u68oe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5avb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl421"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_povaq"]
+
 [node name="mainMenu" type="Control" unique_id=1609928965]
 process_mode = 3
 layout_mode = 3
@@ -315,14 +363,15 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 897.0
-offset_top = -8.0
-offset_right = 1141.0
-offset_bottom = 32.0
+offset_left = 440.0
+offset_top = 483.0
+offset_right = 684.0
+offset_bottom = 523.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_5pajh")
 theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "How To Play"
 script = ExtResource("4_qywvv")
@@ -361,10 +410,203 @@ offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 41
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
 text = "Return"
 alignment = 0
 script = ExtResource("4_qywvv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="howToPlay" unique_id=1305616869]
+texture_filter = 1
+position = Vector2(712, 376.00003)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_hl5e0")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/InnerCircle.aseprite",
+"source_uid": 1096797775563972276
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a920ec0c07b12444fc7939d8c36df0ab"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="howToPlay" unique_id=1390904665]
+texture_filter = 1
+position = Vector2(712, 376.00003)
+rotation = 1.5707964
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_engjn")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/OuterCircle.aseprite",
+"source_uid": 2139673376439098705
+}
+metadata/_aseprite_wizard_source_file_hash_ = "87a29cbccfa741b73ac1ea404ba4eb76"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="howToPlay" unique_id=1259409035]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 328.00003
+offset_right = 761.0
+offset_bottom = 423.00003
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="howToPlay" unique_id=1283242727]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 328.00003
+offset_right = 891.0
+offset_bottom = 423.00003
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="howToPlay" unique_id=561698436]
+texture_filter = 1
+position = Vector2(812, 348.00003)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_hl5e0")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/InnerCircle.aseprite",
+"source_uid": 1096797775563972276
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a920ec0c07b12444fc7939d8c36df0ab"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="howToPlay" unique_id=484139781]
+texture_filter = 1
+position = Vector2(842, 376.00003)
+rotation = 1.5707964
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_engjn")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://graphics/OuterCircle.aseprite",
+"source_uid": 2139673376439098705
+}
+metadata/_aseprite_wizard_source_file_hash_ = "87a29cbccfa741b73ac1ea404ba4eb76"
+
+[node name="Label" type="Label" parent="howToPlay" unique_id=286062920]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 150.0
+offset_right = 506.0
+offset_bottom = 282.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "Welcome to Dead Center! Lets get you started. When you click Play from the title screen, you will be brough to the gamemode Screen."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="howToPlay" unique_id=1853227849]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 457.0
+offset_right = 1040.0
+offset_bottom = 664.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 27
+text = "In the base gamemode, survive for a minute on whatever difficulty you choose. After you've played the base gamemode, try out Endless, where the difficulty steadily ramps up until you die! Achieve the highest possible score.
+Good Luck!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="howToPlay" unique_id=1629535520]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 18.0
+offset_right = 1036.0
+offset_bottom = 309.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "When you start a round, you will be greeted by these two circles and your health bar. The middle circle is your cursor. Once the round starts, your cursor will be thrown out of the center of the screen and your health bar will begin to deplete. To refill your health bar, move your cursor back into the center circle before your health  bar is empty."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="howToPlay" unique_id=1189585204]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 404.0
+offset_right = 502.0
+offset_bottom = 641.0
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 26
+text = "This is where you choose your Gamemode and difficulty. To change gamemodes, click the tab that says |Normal|Endless|. To change the difficulty, either choose one of the presets from the middle or enter a custom diffficulty on the bottom-right. Start with the 'Normal' Preset. when your ready to start a round, click Begin."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="howToPlay" unique_id=892565470]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 424.00003
+offset_right = 732.4048
+offset_bottom = 461.00003
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 25
+text = "✅"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="howToPlay" unique_id=1349018471]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 427.00003
+offset_right = 863.4048
+offset_bottom = 464.00003
+theme = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 22
+text = "❌"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Screenshot20261120081310" type="Sprite2D" parent="howToPlay" unique_id=744704115]
+position = Vector2(254, 341.99997)
+scale = Vector2(0.5275229, 0.5275229)
+texture = ExtResource("6_1a85y")
 
 [node name="gamemodeScreen" type="Control" parent="." unique_id=1019105967]
 visible = false
@@ -415,6 +657,7 @@ offset_bottom = 588.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Begin"
 script = ExtResource("4_qywvv")
 
@@ -441,6 +684,7 @@ offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(0.6627451, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "Return"
 alignment = 0
@@ -769,6 +1013,7 @@ scale = Vector2(0.3610478, 0.36104783)
 texture = ExtResource("14_w44g7")
 
 [node name="deathScreen" type="Control" parent="." unique_id=588241483]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 
@@ -985,6 +1230,7 @@ offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Unpause"
 script = ExtResource("4_qywvv")
 
@@ -1021,6 +1267,86 @@ theme = ExtResource("2_fu7sn")
 text = "Return To Main Menu
 "
 script = ExtResource("4_qywvv")
+
+[node name="startScreen" type="Control" parent="." unique_id=1859735349]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bg2" type="ColorRect" parent="startScreen" unique_id=1760897807]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Images" type="Sprite2D" parent="startScreen" unique_id=1305007066]
+position = Vector2(576, 307.99997)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("29_hl5e0")
+
+[node name="Label" type="Label" parent="startScreen" unique_id=232167831]
+layout_mode = 0
+offset_left = 441.0
+offset_right = 712.0
+offset_bottom = 80.0
+theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 62
+text = "Warning"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="startScreen" unique_id=1216643808]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 78.0
+offset_right = 703.0
+offset_bottom = 260.0
+theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "This game contains flashing lights, intense music, and rapid contrast changes."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="startScreen" unique_id=950145961]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 349.99997
+offset_right = 703.0
+offset_bottom = 388.99997
+theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Headphones Recommended"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="startScreen" unique_id=1685435731]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 409.99997
+offset_right = 754.0
+offset_bottom = 560.0
+theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "For your sanity and mine, PLEASE read the tutorial. It takes like a minute max and youll be really confused if you dont. Its the last option on the next screen."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="startScreen" unique_id=329189602]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 585.0
+offset_right = 703.0
+offset_bottom = 767.0
+theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Press any key"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="options" type="Control" parent="." unique_id=332620021]
 visible = false
@@ -1122,6 +1448,7 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fu7sn")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "Return"
 alignment = 0
@@ -1134,6 +1461,10 @@ offset_top = 452.0
 offset_right = 762.0
 offset_bottom = 479.0
 theme = ExtResource("6_5pajh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u68oe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5avb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tl421")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_povaq")
 text = "Disable Death Screen Animation"
 
 [node name="sound" type="Control" parent="." unique_id=1429411355]
